@@ -16,6 +16,13 @@ class Counter extends Component {
         >
           +1
         </button>
+        <button
+          onClick={() => {
+            this.setState({ number: number - 1 });
+          }}
+        >
+          -1
+        </button>
       </div>
     );
   }

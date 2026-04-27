@@ -2,6 +2,7 @@ import React from 'react';
 import MyComponent from './MyComponent';
 import PjhComponent from './LsyComponent';
 import Counter from './Counter';
+import Say from './Say';
 
 const App = () => {
   return (
@@ -17,6 +18,8 @@ const App = () => {
         업데이트(다시그리기)
       </h2>
       <Counter></Counter>
+      <h2>Say 컴포넌트 출력해보기.</h2>
+      <Say />
     </div>
   );
 };
