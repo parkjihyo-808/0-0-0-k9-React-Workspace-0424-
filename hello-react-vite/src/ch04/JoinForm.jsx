@@ -1,7 +1,12 @@
-import { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 const JoinForm = () => {
-  // 화면과 데이터를 동기화 하기 위한 기본 값을 설정.
+  // 순서2
+  // 함수형 컴포넌트에서, ref 달기 위한 방법. 훅스를 이용하기.
+  const passwordConfirmRef = useRef(null);
+
+  // 화면과 데이터를 동기화 하기
+  //  위한 기본 값을 설정.
   const [form, setForm] = useState({
     username: '',
     email: '',
@@ -36,24 +41,27 @@ const JoinForm = () => {
     }
 
     // 간단, alert , 회원 가입 완료 안내 문구.
-    alert(
-      '유저명 : ' +
-        username +
-        ', email : ' +
-        email +
-        ', password : ' +
-        password +
-        ', passwordConfirm : ' +
-        passwordConfirm,
-    );
+    // alert(
+    //   '유저명 : ' +
+    //     username +
+    //     ', email : ' +
+    //     email +
+    //     ', password : ' +
+    //     password +
+    //     ', passwordConfirm : ' +
+    //     passwordConfirm,
+    // );
+
+    // 순서3,
+    passwordConfirmRef.current.focus();
 
     // 기존에 입력했던 내용을 다 비우기.
-    setForm({
-      username: '',
-      email: '',
-      password: '',
-      passwordConfirm: '',
-    });
+    // setForm({
+    //   username: '',
+    //   email: '',
+    //   password: '',
+    //   passwordConfirm: '',
+    // });
   };
 
   return (
@@ -66,6 +74,9 @@ const JoinForm = () => {
       <input
         type="text"
         name="username"
+        // 방법1,
+        // 순서1,
+        ref={passwordConfirmRef}
         placeholder="username 입력해주세요"
         value={username}
         onChange={onChange}
