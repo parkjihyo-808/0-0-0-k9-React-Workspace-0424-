@@ -5,6 +5,10 @@ import Ex2 from './Ex2';
 import Info from './Info';
 import Ex3 from './Ex3';
 import Ex4 from './Ex4';
+import Counter2 from './Counter2';
+import Ex5 from './Ex5';
+import Ex6 from './Ex6';
+import Average from './Average';
 
 const App = () => {
   //Ex4 에서, 언마운트 효과 내기를 위한 상태 추가.
@@ -52,6 +56,29 @@ const App = () => {
       </button>
       <hr />
       {isShowing && <Ex4 />}
+      <br />
+      <h2>useReducer 기본 예시 연습</h2>
+      <Counter2 />
+      <br />
+      <h3>실습5 </h3>
+      <p>
+        useReducer를 사용하여 INCREMENT, DECREMENT, RESET 세 가지 action을
+        처리하는 카운터를 만드세요. RESET은 값을 0으로 초기화합니다.
+      </p>
+      <Ex5></Ex5>
+      <br />
+      <hr />
+      <h3>실습6 </h3>
+      <p>
+        useReducer로 간단한 To-Do 리스트를 만드세요. ADD action으로 항목을
+        추가하고, REMOVE action으로 항목을 삭제하세요.
+      </p>
+      <Ex6></Ex6>
+
+      <br />
+      <h2>useMemo 기본 예시 연습</h2>
+      <Average></Average>
+      <br />
     </div>
   );
 };
