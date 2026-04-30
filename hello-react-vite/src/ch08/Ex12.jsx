@@ -4,6 +4,7 @@ import useLocalStorage from './useLocalStorage';
 const Ex12 = () => {
   // 커스텀 훅스 이용하기.
   const [name, setName] = useLocalStorage('name', '');
+
   return (
     <div>
       <input
