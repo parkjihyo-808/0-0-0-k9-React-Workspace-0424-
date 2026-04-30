@@ -14,6 +14,10 @@ import Average2 from './Average2';
 import Ex8 from './Ex8';
 import Average3 from './Average3';
 import Ex9 from './Ex9';
+import Ex10 from './Ex10';
+import Info2 from './Info2';
+import Ex11 from './Ex11';
+import Ex12 from './Ex12';
 
 const App = () => {
   //Ex4 에서, 언마운트 효과 내기를 위한 상태 추가.
@@ -112,11 +116,41 @@ const App = () => {
       <hr />
       <h3>실습9 </h3>
       <p>
-        텍스트를 입력하고 "확인" 버튼을 누르면 alert으로 보여주고, 
-        input에 자동으로 포커스가 되돌아오는 컴포넌트를 만드세요.
+        텍스트를 입력하고 "확인" 버튼을 누르면 alert으로 보여주고, input에
+        자동으로 포커스가 되돌아오는 컴포넌트를 만드세요. Average3 ,참고
       </p>
       <Ex9></Ex9>
+      <br />
       <hr />
+      <h3>실습10 </h3>
+      <p>
+        useRef로 렌더링 횟수를 추적하는 컴포넌트를 만드세요. 버튼을 클릭할
+        때마다 state가 변경되고, 콘솔에 현재까지 렌더링된 횟수가 출력되어야
+        합니다. Average3 ,참고
+      </p>
+      <Ex10></Ex10>
+      <br />
+      <h2>커스텀 훅스, 우리가 만든 함수 이름 : useInputs 기본 예시 연습</h2>
+      <Info2></Info2>
+      <br />
+      <hr />
+      <h3>실습11 </h3>
+      <p>
+        useToggle 커스텀 Hook을 만드세요. boolean 값과 값을 토글하는 함수를
+        반환해야 합니다.
+      </p>
+      <Ex11></Ex11>
+      <br />
+      <h3>실습12 </h3>
+      <p>
+        `useLocalStorage` 커스텀 Hook을 만드세요. `useState`처럼 사용하지만 값이
+        localStorage에도 저장되어 페이지 새로고침 후에도 유지되어야 합니다.
+        힌트) 1. localStorage.setItem(key, JSON.stringify(value));
+        로컬스토리지에 저장하기. 2. const item = localStorage.getItem(key); :
+        로컬스토리지에 가져오기.
+      </p>
+      <Ex12></Ex12>
+      <br />
     </div>
   );
 };

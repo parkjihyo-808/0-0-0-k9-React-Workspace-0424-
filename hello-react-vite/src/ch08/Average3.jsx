@@ -4,12 +4,14 @@ const Average3 = () => {
   const [list, setList] = useState([]);
   const [number, setNumber] = useState('');
 
+  // 순서1
   const inputEl = useRef(null);
 
   const onInsert = () => {
     const parsed = parseInt(number, 10);
 
     if (isNaN(parsed)) {
+      // 순서3
       inputEl.current?.focus();
       return;
     }
@@ -17,12 +19,14 @@ const Average3 = () => {
     setList((prevList) => prevList.concat(parsed));
     setNumber('');
 
+    // 순서3
     inputEl.current?.focus();
   };
 
   return (
     <div>
       <input
+        // 순서2
         ref={inputEl}
         value={number}
         onChange={(e) => setNumber(e.target.value)}
