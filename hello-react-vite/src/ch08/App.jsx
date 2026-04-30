@@ -9,6 +9,11 @@ import Counter2 from './Counter2';
 import Ex5 from './Ex5';
 import Ex6 from './Ex6';
 import Average from './Average';
+import Ex7 from './Ex7';
+import Average2 from './Average2';
+import Ex8 from './Ex8';
+import Average3 from './Average3';
+import Ex9 from './Ex9';
 
 const App = () => {
   //Ex4 에서, 언마운트 효과 내기를 위한 상태 추가.
@@ -79,6 +84,39 @@ const App = () => {
       <h2>useMemo 기본 예시 연습</h2>
       <Average></Average>
       <br />
+      <hr />
+      <h3>실습7 </h3>
+      <p>
+        숫자 목록의 최댓값을 useMemo로 계산하는 컴포넌트를 만드세요. 숫자를
+        추가할 때만 최댓값이 재계산되어야 합니다.
+      </p>
+      <Ex7></Ex7>
+      <br />
+      <h2>useCallback 기본 예시 연습</h2>
+      <Average2></Average2>
+      <br />
+      <hr />
+      <hr />
+      <h3>실습8 </h3>
+      <p>
+        useCallback을 이용해서 handleIncrease, handleDecrease, handleReset
+        함수를 메모이제이션하는 카운터 컴포넌트를 만드세요. Counter 를 참고해서,
+        증가, 감소, 리셋 함수를 useCallback 이용해서, 만들기
+      </p>
+      <Ex8></Ex8>
+      <br />
+      <h2>useRef 기본 예시 연습</h2>
+      <Average3></Average3>
+      <br />
+      <hr />
+      <hr />
+      <h3>실습9 </h3>
+      <p>
+        텍스트를 입력하고 "확인" 버튼을 누르면 alert으로 보여주고, 
+        input에 자동으로 포커스가 되돌아오는 컴포넌트를 만드세요.
+      </p>
+      <Ex9></Ex9>
+      <hr />
     </div>
   );
 };
