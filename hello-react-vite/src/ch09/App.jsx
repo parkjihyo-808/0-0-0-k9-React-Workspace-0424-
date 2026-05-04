@@ -2,6 +2,8 @@
 import './App.css';
 import Ex1 from './Ex1';
 import Ex2 from './Ex2';
+import Ex3 from './Ex3';
+import Ex4 from './Ex4';
 import SassComponent from './SassComponent';
 import SassEx1 from './SassEx1';
 
@@ -39,6 +41,30 @@ const App = () => (
     <h2>Sass 예제2</h2>
     <p>공통 util.scss 에서 만든 내용을 SassComponent.scss 활용 연습 확인.</p>
     <SassComponent></SassComponent>
+
+    <h2>실습3</h2>
+    <p>
+      **문제 2-1** : Sass 변수와 믹스인을 활용하여 크기가 3가지인 버튼
+      컴포넌트를 만드세요. - `$primary`, `$danger` 색상 변수 정의 - `@mixin
+      button-size($padding, $font-size)` 믹스인 정의 - `.btn-sm`, `.btn-md`,
+      `.btn-lg` 클래스로 크기 구분
+    </p>
+    <div style={{ display: 'flex', gap: '1rem', padding: '1rem' }}>
+      <Ex3 size="sm">sm 버튼</Ex3>
+      <Ex3 size="md">md 버튼</Ex3>
+      <Ex3 size="lg">lg 버튼</Ex3>
+      <Ex3 size="md" variant="danger">
+        danger 버튼
+      </Ex3>
+
+      <br />
+    </div>
+    <h2>실습4</h2>
+    <p>
+      문제 2-2 : Sass 중첩(&)을 활용하여 네비게이션 바를 만드세요. 활성화된 메뉴
+      항목(.active)은 밑줄이 표시되고, :hover 시 색이 변해야 합니다.
+    </p>
+    <Ex4></Ex4>
   </div>
 );
 
