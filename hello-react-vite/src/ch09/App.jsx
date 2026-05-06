@@ -7,9 +7,13 @@ import Ex3 from './Ex3';
 import Ex4 from './Ex4';
 import Ex5 from './Ex5';
 import Ex6 from './Ex6';
+import Ex7 from './Ex7';
+import Ex8 from './Ex8';
+import Ex9 from './Ex9';
 import ModuleCss from './ModuleCss';
 import SassComponent from './SassComponent';
 import SassEx1 from './SassEx1';
+import StyledComponent from './StyledComponent';
 
 const App = () => (
   <div className="App">
@@ -98,6 +102,58 @@ const App = () => (
       만드세요. 클릭하면 활성/비활성 상태가 전환되고 스타일이 바뀌어야 합니다.
     </p>
     <Ex6></Ex6>
+    <h2>styled-components 예제</h2>
+    <p>js 안에서 css 를 조건을주고, props 속성에 따른 컴포넌트 조건부 렌더링</p>
+    <StyledComponent></StyledComponent>
+    <h2>실습7</h2>
+    <p>
+      문제 4-1 : styled-components로 Input 컴포넌트를 만드세요. error prop이
+      true일 때 테두리가 빨간색으로 바뀌어야 합니다.
+    </p>
+    <Ex7 placeholder="이름을 입력하세요"></Ex7>
+    <Ex7
+      placeholder="이메일을 입력하세요"
+      error
+      errorMessage="올바른 형식이 아닙니다."
+    ></Ex7>
+    <h2>실습8</h2>
+    <p>
+      문제 4-2 : styled-components를 사용하여 Card 컴포넌트를 만드세요. variant
+      prop으로 'primary'와 'secondary' 두 가지 스타일을 지원해야 합니다.
+    </p>
+    <Ex8
+      variant="primary"
+      title="기본 카드 "
+      content="파란색 계열 테마의 카드."
+    ></Ex8>
+    <Ex8
+      variant="secondary"
+      title="보조 카드 "
+      content="보라색 계열 테마의 카드."
+    ></Ex8>
+    <h2>실습9</h2>
+    <p>
+      **원하는 스타일링 방식을 골라** 아래 UI를 구현해 보세요! **요구사항:** -
+      상품 카드 컴포넌트 (`ProductCard`) - 상품 이름, 가격, 할인
+      여부(`isDiscounted`) 표시 - `isDiscounted`가 true이면 가격에 빨간색 "SALE"
+      배지 표시 - 카드에 hover 효과 (살짝 위로 이동: `transform:
+      translateY(-4px)`)
+    </p>
+    <div
+      style={{
+        display: 'flex',
+        gap: '1rem',
+        padding: '2rem',
+        flexWrap: 'wrap',
+      }}
+    >
+      <Ex9 name="무선 이어폰" price={30000} isDiscounted={true}></Ex9>
+      <Ex9 name="스마트워치" price={100000} isDiscounted={true}></Ex9>
+      <Ex9 name="무선 이어폰" price={30000} isDiscounted={true}></Ex9>
+      <Ex9 name="스마트워치" price={100000} isDiscounted={true}></Ex9>
+      <Ex9 name="무선 이어폰" price={30000} isDiscounted={true}></Ex9>
+      <Ex9 name="스마트워치" price={100000} isDiscounted={true}></Ex9>
+    </div>
   </div>
 );
 

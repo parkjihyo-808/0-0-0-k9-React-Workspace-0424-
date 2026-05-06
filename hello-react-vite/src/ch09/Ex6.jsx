@@ -12,7 +12,7 @@ const Ex6 = ({ label = '토글' }) => {
       onClick={() => setIsActive(!isActive)}
       className={cx('button', { active: isActive })}
     >
-      {isActive ? ' 활성화' : `${label} (비활성화)`}
+      {isActive ? ' ✅ 활성화' : `${label} (비활성화)`}
     </button>
   );
 };
