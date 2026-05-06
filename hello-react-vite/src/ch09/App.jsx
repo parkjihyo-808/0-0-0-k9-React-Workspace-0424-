@@ -5,6 +5,8 @@ import Ex1 from './Ex1';
 import Ex2 from './Ex2';
 import Ex3 from './Ex3';
 import Ex4 from './Ex4';
+import Ex5 from './Ex5';
+import Ex6 from './Ex6';
 import ModuleCss from './ModuleCss';
 import SassComponent from './SassComponent';
 import SassEx1 from './SassEx1';
@@ -80,6 +82,22 @@ const App = () => (
     <CSSModule></CSSModule>
     <h3>inverted 속성 추가 모드 </h3>
     <CSSModule inverted={true}></CSSModule>
+    <h2>실습5</h2>
+    <p>
+      문제 3-1 : CSS Module을 사용하여 Badge 컴포넌트를 만드세요. type prop에
+      따라 success, warning, error 세 가지 색상이 적용되어야 합니다.
+    </p>
+    <div>
+      <Ex5 type="success">성공</Ex5>
+      <Ex5 type="warning">경고</Ex5>
+      <Ex5 type="error">오류</Ex5>
+    </div>
+    <h2>실습6</h2>
+    <p>
+      문제 3-2 : CSS Module과 classnames를 활용하여 토글 버튼 컴포넌트를
+      만드세요. 클릭하면 활성/비활성 상태가 전환되고 스타일이 바뀌어야 합니다.
+    </p>
+    <Ex6></Ex6>
   </div>
 );
 

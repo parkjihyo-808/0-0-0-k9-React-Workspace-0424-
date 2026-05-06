@@ -1,0 +1,33 @@
+/* CSS Module을 사용하여 `Ex5` 컴포넌트를 만드세요. 
+`type` prop에 따라 `success`, `warning`, 
+`error` 세 가지 색상이 적용되어야 합니다.
+
+// 사용 예시
+<Ex5 type="success">성공</Ex5>
+<Ex5 type="warning">경고</Ex5>
+<Ex5 type="error">오류</Ex5> */
+
+.badge {
+    display: inline-block; 
+    padding: 0.2rem 0.7rem;
+    /* 최대한 둥글게 해, 직사각형 : 알약 모양, 정사각형 : 원 모양, 50% 동일 효과인데,  */
+    border-radius: 999px; 
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+
+    background-color: #373737;
+    line-height: 1;
+    /* 줄바꿈 방지 효과 */
+    white-space: nowrap;
+    /* 텍스트, 아이콘과 함께 쓸 때 정렬 보정.  */
+    vertical-align: middle;
+    /* 드래그 선택 방지 효과 */
+    user-select: none;
+}
+
+.success {background-color: #2aca30;}
+.warning {background-color: #ee9207;}
+.error {background-color: #ec1c0d;}
+
+
