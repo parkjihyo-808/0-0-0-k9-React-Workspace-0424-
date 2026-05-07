@@ -2,7 +2,9 @@
 import TodoListItem from './TodoListItem';
 import './TodoList.scss';
 
-const TodoList = ({ todos, onRemove, onToggle }) => (
+// ── 실습7, ────────────────────────────────────────────
+// 순서3
+const TodoList = ({ todos, onRemove, onToggle, onUpdate }) => (
   <div className="TodoList">
     {todos.length === 0 ? (
       <p style={{ textAlign: 'center', padding: '2rem', color: 'red' }}>
@@ -15,6 +17,9 @@ const TodoList = ({ todos, onRemove, onToggle }) => (
           key={todo.id} // 리스트 렌더링 시 반드시 고유한 key 필요
           onRemove={onRemove}
           onToggle={onToggle}
+          // ── 실습7, ────────────────────────────────────────────
+          // 순서4
+          onUpdate={onUpdate}
         />
       ))
     )}
