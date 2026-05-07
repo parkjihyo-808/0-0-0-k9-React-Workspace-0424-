@@ -1,29 +1,34 @@
-// src/components/TodoList.js
+import React, { useCallback } from 'react';
+import { List } from 'react-virtualized';
 import TodoListItem from './TodoListItem';
-import './TodoList.scss';
 
-// ── 실습7, ────────────────────────────────────────────
-// 순서3
-const TodoList = ({ todos, onRemove, onToggle, onUpdate }) => (
-  <div className="TodoList">
-    {todos.length === 0 ? (
-      <p style={{ textAlign: 'center', padding: '2rem', color: 'red' }}>
-        할 일이 없습니다.
-      </p>
-    ) : (
-      todos.map((todo) => (
+const TodoList = ({ todos, onRemove, onToggle }) => {
+  const rowRenderer = useCallback(
+    ({ index, key, style }) => {
+      const todo = todos[index];
+      return (
         <TodoListItem
           todo={todo}
-          key={todo.id} // 리스트 렌더링 시 반드시 고유한 key 필요
+          key={key}
           onRemove={onRemove}
           onToggle={onToggle}
-          // ── 실습7, ────────────────────────────────────────────
-          // 순서4
-          onUpdate={onUpdate}
+          style={style} // ← react-virtualized가 넘겨주는 style 반드시 적용
         />
-      ))
-    )}
-  </div>
-);
+      );
+    },
+    [onRemove, onToggle, todos],
+  );
 
-export default TodoList;
+  return (
+    <List
+      width={512}
+      height={513}
+      rowCount={todos.length}
+      rowHeight={56}
+      rowRenderer={rowRenderer}
+      style={{ outline: 'none' }}
+    />
+  );
+};
+
+export default React.memo(TodoList);
