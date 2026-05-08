@@ -1,36 +1,46 @@
-import React from 'react';
-import { useState, useRef, useCallback } from 'react';
+import React, { memo } from 'react';
 
-// 문제 3-1 : onInsert 함수에서 빈 문자열('')을 입력하면
-// 추가하지 않도록 유효성 검사를 추가해 보세요.
+import { useState } from 'react';
+
+// TODO: 이 컴포넌트에 memo를 적용하세요
+// memo가 부모로부터 받는 props 비교만 최적화합니다.
+// 그래서, 컴포넌트 자신의 state가 바뀌면 리렌더합니다.
+
+const Child = memo(function Child({ name, score }) {
+  console.log('Child 렌더 — name:', name, 'score:', score);
+  return (
+    <div
+      style={{
+        marginTop: 12,
+        padding: 12,
+        border: '1px solid #dee2e6',
+        borderRadius: 8,
+      }}
+    >
+      <p>이름: {name}</p>
+      <p>점수: {score}</p>
+    </div>
+  );
+});
 
 const Ex3 = () => {
-  // ── 상태 선언 ──────────────────────────────────────────
-  const [todos, setTodos] = useState([
-    { id: 1, text: '리액트의 기초 알아보기', checked: true },
-    { id: 2, text: '컴포넌트 스타일링해 보기', checked: true },
-    { id: 3, text: '일정 관리 앱 만들어 보기', checked: false },
-  ]);
+  const [parentCount, setParentCount] = useState(0);
+  const [childScore, setChildScore] = useState(100);
 
-  // 다음 id 추적 (useState 아닌 useRef 사용 → 리렌더링 불필요)
-  const nextId = useRef(4);
-  // ── 할 일 추가 ─────────────────────────────────────────
-  // concat: 기존 배열은 그대로 두고 새 배열을 반환 (불변성 유지)
-  const onInsert = useCallback((text) => {
-    // 빈문자열이면, onInsert 함수 기능을 나간다.
-    if (!text.trim()) return;
-
-    const todo = {
-      id: nextId.current,
-      text,
-      checked: false,
-    };
-    // 함수형 업데이트: 항상 최신 todos 기준으로 업데이트
-    setTodos((todos) => todos.concat(todo));
-    nextId.current += 1; // 다음 id 증가
-  }, []); // 의존성 없음 → 마운트 시 1회만 생성
-
-  return <div></div>;
+  return (
+    <div style={{ padding: 24, fontFamily: 'system-ui' }}>
+      <h1>Q3 — memo 적용</h1>
+      <div style={{ display: 'flex', gap: 12, marginBottom: 16 }}>
+        <button type="button" onClick={() => setParentCount((c) => c + 1)}>
+          부모만 리렌더 ({parentCount})
+        </button>
+        <button type="button" onClick={() => setChildScore((s) => s + 10)}>
+          자식 점수 변경 ({childScore})
+        </button>
+      </div>
+      <Child name="김철수" score={childScore} />
+    </div>
+  );
 };
 
 export default Ex3;

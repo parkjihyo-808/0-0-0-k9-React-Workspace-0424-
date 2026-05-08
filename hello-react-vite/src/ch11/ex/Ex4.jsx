@@ -1,45 +1,50 @@
-import {
-  MdCheckBoxOutlineBlank, // 미체크 아이콘 □
-  MdCheckBox, // 체크 아이콘 ☑
-  MdRemoveCircleOutline, // 삭제 아이콘 ⊖
-} from 'react-icons/md';
-import { AiFillDelete } from 'react-icons/ai';
-import cn from 'classnames';
-import './TodoListItem.scss';
+import { memo, useState } from 'react';
 
-// 문제 3-2 : onRemove를 호출하기 전에
-// window.confirm('정말 삭제할까요?')으로
-// 사용자 확인을 받도록 TodoListItem을 수정해 보세요.
-// src/components/TodoListItem.js
+const Row = memo(function Row({ label, onPing }) {
+  console.log('Row 렌더:', label);
+  return (
+    <div
+      style={{
+        display: 'flex',
+        gap: 8,
+        padding: 10,
+        borderBottom: '1px solid #eee',
+        alignItems: 'center',
+      }}
+    >
+      <span style={{ flex: 1 }}>{label}</span>
+      <button type="button" onClick={onPing} style={{ padding: '4px 12px' }}>
+        ping
+      </button>
+    </div>
+  );
+});
 
-const TodoListItem = ({ todo, onRemove, onToggle }) => {
-  const { id, text, checked } = todo; // 구조 분해 할당
+const Ex4 = () => {
+  const [parentCount, setParentCount] = useState(0);
 
-  // 삭제 전 confirm 다이얼로그 표시,
-  const handleRemove = () => {
-    if (window.confirm(`"${text}" 정말 삭제할까요?`)) {
-      onRemove(id);
-    }
+  // 🐛 문제: 왜 memo가 있는데 Row가 계속 리렌더될까요?
+  const handlePingA = () => {
+    console.log('ping A!');
+  };
+  const handlePingB = () => {
+    console.log('ping B!');
   };
 
   return (
-    <div className="TodoListItem">
-      {/* 체크박스 영역: 클릭 시 토글 */}
-      <div
-        className={cn('checkbox', { checked })} // checked=true면 'checkbox checked'
-        onClick={() => onToggle(id)}
+    <div style={{ padding: 24, fontFamily: 'system-ui' }}>
+      <h1>Q4 — useCallback</h1>
+      <button
+        type="button"
+        onClick={() => setParentCount((c) => c + 1)}
+        style={{ padding: '8px 16px', marginBottom: 16 }}
       >
-        {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
-        <div className="text">{text}</div>
-      </div>
-
-      {/* 삭제 버튼: 클릭 시 삭제 */}
-      <div className="remove" onClick={handleRemove}>
-        {/* <MdRemoveCircleOutline /> */}
-        <AiFillDelete />
-      </div>
+        부모 리렌더 유발 ({parentCount})
+      </button>
+      <Row label="항목 A" onPing={handlePingA} />
+      <Row label="항목 B" onPing={handlePingB} />
     </div>
   );
 };
 
-export default TodoListItem;
+export default Ex4;
