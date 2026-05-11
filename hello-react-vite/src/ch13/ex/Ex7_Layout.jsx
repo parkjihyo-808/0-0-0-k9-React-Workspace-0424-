@@ -10,7 +10,7 @@ import { Outlet, Link, NavLink } from 'react-router-dom';
 const navStyle = { marginRight: '12px', textDecoration: 'none', color: '#555' };
 const activeStyle = { ...navStyle, color: 'blue', fontWeight: 'bold' };
 
-const Ex5 = () => {
+const Ex7_Layout = () => {
   // 실습5
   // 순서1,
   // 상태 관리, 현재 시간 담을 상태 변수 및 세터 함수 지정,
@@ -45,56 +45,15 @@ const Ex5 = () => {
           소개
         </NavLink>
         <NavLink
-          to="/profiles/lsy"
+          to="/posts"
           className={({ isActive }) =>
             isActive ? 'active-link' : 'normal-link'
           }
           //   style={({ isActive }) => (isActive ? activeStyle : navStyle)}
         >
-          프로필
+          Posts
         </NavLink>
 
-        <NavLink
-          to="/useNavigate"
-          //   style={({ isActive }) => (isActive ? activeStyle : navStyle)}
-          style={({ isActive }) => ({
-            color: isActive ? 'green' : 'black',
-            fontWeight: isActive ? 'bold' : 'normal',
-          })}
-        >
-          useNavigate 테스트
-        </NavLink>
-        <NavLink
-          to="/myPage"
-          //   style={({ isActive }) => (isActive ? activeStyle : navStyle)}
-          style={({ isActive }) => ({
-            color: isActive ? 'green' : 'black',
-            fontWeight: isActive ? 'bold' : 'normal',
-          })}
-        >
-          임시 myPage
-        </NavLink>
-        <NavLink
-          to="/myPage2"
-          //   style={({ isActive }) => (isActive ? activeStyle : navStyle)}
-          style={({ isActive }) => ({
-            color: isActive ? 'green' : 'black',
-            fontWeight: isActive ? 'bold' : 'normal',
-          })}
-        >
-          Ex6-myPage
-        </NavLink>
-        <NavLink
-          to="/login"
-          //   style={({ isActive }) => (isActive ? activeStyle : navStyle)}
-          style={({ isActive }) => ({
-            color: isActive ? 'green' : 'black',
-            fontWeight: isActive ? 'bold' : 'normal',
-          })}
-        >
-          💛로그인
-        </NavLink>
-        {/* 순서3, 화면에 표시하기.  */}
         <span>⏲️: {time}</span>
       </header>
 
@@ -118,4 +77,4 @@ const Ex5 = () => {
   );
 };
 
-export default Ex5;
+export default Ex7_Layout;

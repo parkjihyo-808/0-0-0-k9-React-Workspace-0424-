@@ -13,6 +13,9 @@ import Layout from './pages/Layout';
 import Ex5 from './ex/Ex5';
 import UseNavigate from './pages/UseNavigate';
 import NotFound from './pages/NotFound';
+import MyPage from './pages/MyPage';
+import Login from './pages/Login';
+import Ex6 from './ex/Ex6';
 
 const App = () => {
   return (
@@ -42,6 +45,9 @@ const App = () => {
             <Route path=":id" element={<Article />} />
           </Route>
           <Route path="/useNavigate" element={<UseNavigate />} />
+          <Route path="/myPage" element={<MyPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/myPage2" element={<Ex6 />} />
           {/* App.jsx Routes 마지막에 추가 */}
           <Route path="*" element={<NotFound />} />{' '}
           {/* * = 어떤 경로도 매칭 안될 때 */}
