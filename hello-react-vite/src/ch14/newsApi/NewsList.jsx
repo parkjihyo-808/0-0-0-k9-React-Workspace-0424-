@@ -3,6 +3,11 @@ import styled from 'styled-components';
 import NewsItem from './NewsItem';
 import usePromise from './usePromise';
 import PdItemFood from './PdItemFood';
+import PdItemHospital from './PdItemHospital';
+import PdItemFestival from './PdItemFestival';
+import PdItemExperience from './PdItemExperience';
+import PdItemShopping from './PdItemShopping';
+import PdItemWalking from './PdItemWalking';
 
 const NewsListBlock = styled.div`
   box-sizing: border-box;
@@ -31,7 +36,29 @@ const NewsList = ({ category = 'all' }) => {
       return axios.get(
         `https://apis.data.go.kr/6260000/AttractionService/getAttractionKr?serviceKey=${publicDataApiKey}&pageNo=1&numOfRows=100&resultType=json`,
       );
-    } else {
+    } else if (category === 'busanFestival') {
+      return axios.get(
+        `http://apis.data.go.kr/6260000/FestivalService/getFestivalKr?serviceKey=${publicDataApiKey}&pageNo=1&numOfRows=100&resultType=json`,
+      )
+    } else if (category === 'busanHospital') {
+      return axios.get(
+        `http://apis.data.go.kr/6260000/MedicInstitService/MedicalInstitInfo?serviceKey=${publicDataApiKey}&pageNo=1&numOfRows=100&resultType=json`,
+      )
+    } else if (category === 'busanWalking') {
+      return axios.get(
+        `http://apis.data.go.kr/6260000/WalkingService/getWalkingKr?serviceKey=${publicDataApiKey}&pageNo=1&numOfRows=100&resultType=json`,
+      )
+    } else if (category === 'busanShopping') {
+      return axios.get(
+        `http://apis.data.go.kr/6260000/ShoppingService/getShoppingKr?serviceKey=${publicDataApiKey}&pageNo=1&numOfRows=100&resultType=json`,
+      )
+    } else if (category === 'busanExperience') {
+      return axios.get(
+        `http://apis.data.go.kr/6260000/ShoppingService/getShoppingKr?serviceKey=${publicDataApiKey}&pageNo=1&numOfRows=100&resultType=json`,
+      )
+    }
+    
+     else {
       return axios.get(
         `https://newsapi.org/v2/top-headlines?country=us${query}&apiKey=${apiKey}`,
       );
@@ -65,7 +92,17 @@ const NewsList = ({ category = 'all' }) => {
       ? resolved.data.getFoodKr?.item || []
       : category === 'busanTour'
         ? resolved.data.getAttractionKr?.item || []
-        : resolved.data.articles || [];
+        : category === 'busanHospital'
+          ? resolved.data.getMedicalHospKr?.item || []
+          : category === 'busanFestival'
+            ? resolved.data.getFestivalKr?.item || []
+            : category === 'busanExperience'
+              ? resolved.data.getExperienceKr?.item || []
+              : category === 'busanShopping'
+                ? resolved.data.getShoppingKr?.item || []
+                : category === 'busanWalking'
+                  ? resolved.data.getWalkingKr?.item || []
+                  : resolved.data.articles || [];
 
   // ### 📝 실습 문제 4
 
@@ -87,7 +124,17 @@ const NewsList = ({ category = 'all' }) => {
         ? data.map((data, index) => <PdItemFood key={index} article={data} />)
         : category === 'busanTour'
           ? data.map((data, index) => <PdItemFood key={index} article={data} />)
-          : data.map((data) => <NewsItem key={data.url} article={data} />)}
+          : category === 'busanHospital'
+            ? data.map((data, index) => <PdItemHospital key={index} article={data} />)
+            : category === 'busanFestival'
+              ? data.map((data, index) => <PdItemFestival key={index} article={data} />)
+              : category === 'busanExperience'
+                ? data.map((data, index) => <PdItemExperience key={index} article={data} />)
+                : category === 'busanShopping'
+                  ? data.map((data, index) => <PdItemShopping key={index} article={data} />)
+                  : category === 'busanWalking'
+                    ? data.map((data, index) => <PdItemWalking key={index} article={data} />)
+                    : data.map((data) => <NewsItem key={data.url} article={item} />)}
     </NewsListBlock>
   );
 };

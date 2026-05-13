@@ -11,6 +11,13 @@ const categories = [
   { name: 'technology', text: '기술' },
   { name: 'busanFood', text: '부산 맛집 정보 서비스' },
   { name: 'busanTour', text: '부산 관광 정보 서비스' },
+
+  // 신규 추가 5종
+  { name: 'busanWalking', text: '부산 도보여행' },
+  { name: 'busanFestival', text: '부산 축제' },
+  { name: 'busanHospital', text: '부산 의료기관' },
+  { name: 'busanShopping', text: '부산 쇼핑' },
+  { name: 'busanExperience', text: '부산 체험' },
 ];
 
 const CategoriesBlock = styled.div`

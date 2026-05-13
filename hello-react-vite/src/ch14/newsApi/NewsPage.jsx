@@ -17,6 +17,13 @@ const categoryNames = {
   technology: '기술',
   busanFood: '부산 맛집 정보 서비스',
   busanTour: '부산 관광 정보 서비스',
+
+  // 신규 추가 5종
+  busanWalking: '부산 도보 여행 정보',
+  busanFestival: '부산 축제 정보 서비스',
+  busanHospital: '부산 의료기관 정보',
+  busanShopping: '부산 쇼핑 정보 서비스',
+  busanExperience: '부산 체험 정보 서비스',
 };
 
 const NewsPage = () => {
