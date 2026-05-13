@@ -9,6 +9,7 @@ const categories = [
   { name: 'science', text: '과학' },
   { name: 'sports', text: '스포츠' },
   { name: 'technology', text: '기술' },
+  { name: 'busanFood', text: '부산 맛집 정보 서비스' },
 ];
 
 const CategoriesBlock = styled.div`
