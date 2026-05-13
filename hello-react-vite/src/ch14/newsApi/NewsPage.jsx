@@ -16,6 +16,7 @@ const categoryNames = {
   sports: '스포츠',
   technology: '기술',
   busanFood: '부산 맛집 정보 서비스',
+  busanTour: '부산 관광 정보 서비스',
 };
 
 const NewsPage = () => {
@@ -28,7 +29,7 @@ const NewsPage = () => {
   const categoryText = categoryNames[currentCategory] || '전체보기';
 
   // 파이널 실습, 페이지 번호, 상태변수로 지정,
-  const [page, setPage] = useState(1);
+  // const [page, setPage] = useState(1);
 
   return (
     <>

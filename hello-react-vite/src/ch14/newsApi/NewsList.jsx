@@ -27,6 +27,10 @@ const NewsList = ({ category = 'all' }) => {
       return axios.get(
         `https://apis.data.go.kr/6260000/FoodService/getFoodKr?serviceKey=${publicDataApiKey}&pageNo=1&numOfRows=100&resultType=json`,
       );
+    } else if (category === 'busanTour') {
+      return axios.get(
+        `https://apis.data.go.kr/6260000/AttractionService/getAttractionKr?serviceKey=${publicDataApiKey}&pageNo=1&numOfRows=100&resultType=json`,
+      );
     } else {
       return axios.get(
         `https://newsapi.org/v2/top-headlines?country=us${query}&apiKey=${apiKey}`,
@@ -53,10 +57,15 @@ const NewsList = ({ category = 'all' }) => {
 
   // 기존의 뉴스 기사 데이터 내용이고, 카테고리에 따라서, 내용을 분기하기.
   // const { articles } = resolved.data;
+  // ?.
+  // getFoodKr?. , 서버로 호출된 값에 접근시, 데이터가 없을 경우, 에러를 발생시키는 것이 아니라,
+  // undefined  또는 null 이어도, 에러를 발생시키지 않는다.
   const data =
     category === 'busanFood'
-      ? resolved.data.getFoodKr.item || []
-      : resolved.data;
+      ? resolved.data.getFoodKr?.item || []
+      : category === 'busanTour'
+        ? resolved.data.getAttractionKr?.item || []
+        : resolved.data.articles || [];
 
   // ### 📝 실습 문제 4
 
@@ -76,7 +85,9 @@ const NewsList = ({ category = 'all' }) => {
     <NewsListBlock>
       {category === 'busanFood'
         ? data.map((data, index) => <PdItemFood key={index} article={data} />)
-        : data.map((data) => <NewsItem key={data.url} article={data} />)}
+        : category === 'busanTour'
+          ? data.map((data, index) => <PdItemFood key={index} article={data} />)
+          : data.map((data) => <NewsItem key={data.url} article={data} />)}
     </NewsListBlock>
   );
 };

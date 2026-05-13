@@ -10,6 +10,7 @@ const categories = [
   { name: 'sports', text: '스포츠' },
   { name: 'technology', text: '기술' },
   { name: 'busanFood', text: '부산 맛집 정보 서비스' },
+  { name: 'busanTour', text: '부산 관광 정보 서비스' },
 ];
 
 const CategoriesBlock = styled.div`
