@@ -2,10 +2,11 @@ import { createContext, useState } from 'react';
 
 // 기본값: 타입 힌트 역할 (실제 값은 Provider가 공급)
 const ColorContext2 = createContext({
-  state: { color: 'black', subcolor: 'red' },
+  state: { color: 'black', subcolor: 'red', fontSize: '16px' },
   actions: {
     setColor: () => {},
     setSubcolor: () => {},
+    setFontSize: () => {},
   },
 });
 
@@ -14,10 +15,11 @@ const ColorContext2 = createContext({
 const ColorProvider = ({ children }) => {
   const [color, setColor] = useState('black');
   const [subcolor, setSubcolor] = useState('red');
+  const [fontSize, setFontSize] = useState('16px');
 
   const value = {
-    state: { color, subcolor },
-    actions: { setColor, setSubcolor },
+    state: { color, subcolor, fontSize },
+    actions: { setColor, setSubcolor, setFontSize },
   };
 
   return (
